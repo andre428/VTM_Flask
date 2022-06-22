@@ -1,15 +1,11 @@
-Vampire the Masquerade character sheet & discipline dice pool chart.
-Alpha test.
+# **Vampire the Masquerade V3.5e**
 
-Default database includes disctionaries for Clans, Paths and Disciplines
+## Character sheet & Disciplines dice pool chart.
 
-You can add new character do database with:
-1. Provided Excel frame
-2. Form
+Default database includes dictionaries for Clans, Paths and Disciplines
 
-Warning:
+Adding new characters currently bugged.
+
+### Warning:
 Choosing REM from top menu clears database without asking or even showing what just happened. 
-Just temporary feature.
-
-Have fun
-111
+Just temporary feature. ;)
