@@ -82,6 +82,6 @@ class UploadForm(FlaskForm):
     form_selfcontrol = IntegerField()
     form_courage = IntegerField()
 
-    form_disciplines = FieldList(FormField(ListOfDiss))
+    form_disciplines = FieldList(FormField(ListOfDiss), min_entries=3, max_entries=6)
 
     submit = SubmitField('Add this Character')

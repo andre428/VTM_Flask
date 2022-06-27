@@ -211,6 +211,7 @@ def addform():
         db.session.add(form_attribs)
         db.session.add(form_abilits)
         db.session.add(form_traits)
+
         db.session.add(form_discc)
 
         db.session.commit()

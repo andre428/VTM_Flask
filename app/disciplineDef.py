@@ -3,8 +3,18 @@ from app.models import Sheets, Info, Attributes, Abilities, Traits
 
 class Disciplinizer:
 
-    def __init__(self, char_name, character=[], char_info=[], attributes_info=[], abilities_info=[],
-                 trait_info=[]):
+    def __init__(self, char_name, character=None, char_info=None, attributes_info=None, abilities_info=None,
+                 trait_info=None):
+        if trait_info is None:
+            trait_info = []
+        if abilities_info is None:
+            abilities_info = []
+        if attributes_info is None:
+            attributes_info = []
+        if char_info is None:
+            char_info = []
+        if character is None:
+            character = []
         self.char_name = char_name
         self.character = character
         self.char_info = char_info
