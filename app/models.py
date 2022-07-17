@@ -21,7 +21,7 @@ class Info(db.Model):
     nature = db.Column(db.String(20), unique=False, nullable=False)
     demeanor = db.Column(db.String(20), unique=False, nullable=False)
     role = db.Column(db.String(20), unique=False, nullable=False)
-    story = db.Column(db.String(40), unique=False, nullable=False)
+    story = db.Column(db.String(40), unique=False, nullable=True)
     generation = db.Column(db.Integer, unique=False, nullable=False)
     age = db.Column(db.Integer, unique=False, nullable=False)
     sire = db.Column(db.String(20), unique=False, nullable=False)

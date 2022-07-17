@@ -11,9 +11,9 @@ discipline_choices = [(d.id, d.discipline) for d in DisciplineDict.query.order_b
 path_choices = [(p.id, p.pathname) for p in PathDict.query.order_by('pathname')]
 
 
-class ListOfDiss(FlaskForm):
-    list_disciplines = SelectField(choices=discipline_choices)
-    form_dlevel = IntegerField()
+# class ListOfDiss(FlaskForm):
+#     list_disciplines = SelectField(choices=discipline_choices)
+#     form_dlevel = IntegerField()
 
 
 class UploadForm(FlaskForm):
@@ -21,6 +21,9 @@ class UploadForm(FlaskForm):
     form_char = StringField()
 
     form_clan = SelectField(choices=clan_choices)
+
+    form_disciplines = SelectField(choices=discipline_choices)
+    form_dlevel = IntegerField()
 
     form_nature = StringField()
     form_demeanor = StringField()
@@ -81,7 +84,5 @@ class UploadForm(FlaskForm):
     form_conscience = IntegerField()
     form_selfcontrol = IntegerField()
     form_courage = IntegerField()
-
-    form_disciplines = FieldList(FormField(ListOfDiss), min_entries=3, max_entries=6)
 
     submit = SubmitField('Add this Character')

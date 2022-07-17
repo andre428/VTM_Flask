@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash
 from sqlalchemy import func
 from werkzeug.utils import secure_filename
-from xlrd import open_workbook
+
 from app import app, db
 from app.disciplineDef import Disciplinizer, dictionarizer
 from app.form import UploadForm
@@ -47,7 +47,8 @@ def addfile():
         filename = secure_filename(upfile.file.data.filename)
         upfile.file.data.save('uploads/' + filename)
 
-        pc_chart = open_workbook('uploads/' + filename)
+        # pc_chart = open_workbook('uploads/' + filename)
+        pc_chart = ""
         c_sheet = pc_chart.sheet_by_index(0)
 
         scan = Character(c_sheet)
@@ -204,19 +205,19 @@ def addform():
                              courage=form.form_courage.data,
                              char_id=ctrl)
 
-        form_discc = Disciplines(disciplineid=form.form_disciplines.data, dlevel=form.form_dlevel.data, char_id=ctrl)
+        form_discc = Disciplines(disciplineid=form.form_disciplines.data,
+                                 dlevel=form.form_dlevel.data, char_id=ctrl)
 
         db.session.add(form_sheet)
         db.session.add(form_info)
         db.session.add(form_attribs)
         db.session.add(form_abilits)
         db.session.add(form_traits)
-
         db.session.add(form_discc)
 
         db.session.commit()
 
-        flash('Character ->> ' + form.form_char.data + ' <<- added successfully!')
+        flash(f'Character ->> {form.form_char.data} <<- added successfully!')
 
         return redirect(url_for('index'))
 
